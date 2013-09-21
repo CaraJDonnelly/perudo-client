@@ -29,6 +29,16 @@ class CEnv:
 			self.I_Verbose = 2
 		if "-vvv" in sys.argv:
 			self.I_Verbose = 3
+			self.Verbose(3, "Very very verbose")
+		#get name from command line
+		try:
+			if "-n" in sys.argv:
+	                        self.ArgvName = sys.argv[sys.argv.index("-n")+1]  #convert the next entry to a name
+			else:
+				raise
+		except:
+			self.ArgvName = "Alice"
+			self.Verbose(1, "Could not extract name!  Using %s", self.ArgvName)
 	
 		
 
